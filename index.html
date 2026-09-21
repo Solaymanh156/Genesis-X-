@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Genesis X - AI Magazine</title>
+    <!-- PWA Manifest Link -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00e5ff">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #0a0e17; color: #ffffff; font-family: sans-serif; }
@@ -75,5 +78,15 @@
         <p>&copy; 2026 Genesis X AI Magazine.</p>
     </footer>
 
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('Service Worker Registered!', reg))
+                    .catch(err => console.log('Service Worker Registration Failed!', err));
+            });
+        }
+    </script>
 </body>
 </html>
