@@ -1,113 +1,79 @@
-Act as a Senior Web Developer, UI/UX Designer, and PWA (Progressive Web App) Specialist.
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genesis X - AI Magazine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0a0e17; color: #ffffff; font-family: sans-serif; }
+        .neon-cyan { color: #00e5ff; text-shadow: 0 0 10px rgba(0, 229, 255, 0.5); }
+        .neon-border { border: 1px solid #00e5ff; box-shadow: 0 0 15px rgba(0, 229, 255, 0.2); }
+        .bg-glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
 
-I want to build a 100% FREE, Lightweight, Futuristic, and Responsive Web App / PWA for my digital periodical named "FutureYou AI Magazine". 
+    <!-- Header -->
+    <header class="bg-glass sticky top-0 z-50 border-b border-cyan-500/20 px-6 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold neon-cyan tracking-wider">GENESIS X</h1>
+        <button class="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-4 py-2 rounded-lg text-sm">
+            Install App
+        </button>
+    </header>
 
-The app must be hosted for FREE on GitHub Pages (username.github.io) and fully manageable directly from a mobile phone browser without any paid server, database, or Play Store fees.
+    <!-- Hero Section -->
+    <section id="home" class="px-6 py-12 text-center max-w-4xl mx-auto">
+        <span class="text-xs uppercase tracking-widest bg-cyan-950 text-cyan-400 px-3 py-1 rounded-full border border-cyan-500/30">Issue #01 Available Now</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold mt-6 mb-4">Human vs Machine Intelligence</h2>
+        <p class="text-gray-400 text-base mb-8">Discover futuristic AI trends, tools, and transformation stories in Genesis X Digital Magazine.</p>
+        <a href="#magazine" class="bg-gradient-to-r from-cyan-500 to-fuchsia-600 text-white font-bold px-6 py-3 rounded-xl shadow-lg inline-block">
+            Read Issue #01
+        </a>
+    </section>
 
-==================================================
-1. PROJECT OVERVIEW & ZERO-COST ARCHITECTURE
-==================================================
-- Target Platform: GitHub Pages (PWA Architecture)
-- Mobile Installation: "Add to Home Screen" (PWA manifest & service worker included so users can install it like a Play Store app).
-- Visual Theme: Cyberpunk / Futuristic Dark Mode
-- Color Palette: Deep Navy Blue (#0A0E17), Pure Black (#000000), Glowing Neon Cyan (#00E5FF), Neon Purple (#D500F9).
-- Technology Stack: HTML5, CSS3 (Tailwind CSS via CDN), Vanilla JavaScript, PDF.js for web reading, JSON for data storage.
+    <!-- Magazine Reader Section -->
+    <section id="magazine" class="px-6 py-8 max-w-5xl mx-auto w-full">
+        <h3 class="text-xl font-bold mb-4 text-cyan-400 border-l-4 border-cyan-400 pl-3">Featured Magazine</h3>
+        <div class="bg-glass rounded-2xl p-5 neon-border flex flex-col gap-4 items-center">
+            <div class="w-full bg-slate-800 rounded-xl h-48 flex items-center justify-center border border-slate-700">
+                <span class="text-cyan-400 font-semibold">[ Genesis X Cover ]</span>
+            </div>
+            <div class="w-full text-center">
+                <h4 class="text-lg font-bold mb-2">Issue #01: GENESIS X</h4>
+                <p class="text-gray-400 text-sm mb-4">Explore deep insights into AI Transformation, prompt engineering, and upcoming tech revolutions.</p>
+                <button class="bg-cyan-500/20 text-cyan-300 border border-cyan-500/50 font-semibold px-6 py-2 rounded-lg">
+                    Open Reader (PDF)
+                </button>
+            </div>
+        </div>
+    </section>
 
-==================================================
-2. AFFILIATE MONETIZATION & SUPPORT HUB (DAY 1 REVENUE)
-==================================================
-A. Top Free & Paid AI Tools Directory:
-   - Interactive grid displaying categorized AI tools (Writing, Visuals, Coding, Productivity).
-   - Tool Cards with description, use cases, and direct "Try Tool" buttons embedded with dynamic Affiliate / Referral Links:
-     * ChatGPT / OpenAI
-     * Midjourney
-     * Canva
-     * Jasper AI
-     * Google Gemini / AI Tools
-     * Synthesia / Video Generators
+    <!-- AI Tools Directory -->
+    <section id="tools" class="px-6 py-8 max-w-5xl mx-auto w-full">
+        <h3 class="text-xl font-bold mb-4 text-cyan-400 border-l-4 border-cyan-400 pl-3">Top AI Tools Hub</h3>
+        <div class="grid grid-cols-1 gap-4">
+            <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                <h4 class="font-bold text-base mb-1">ChatGPT / OpenAI</h4>
+                <p class="text-gray-400 text-xs mb-3">Conversational AI for content, coding, and brainstorming.</p>
+                <a href="https://chatgpt.com" target="_blank" class="text-xs text-cyan-400 font-semibold">Try Tool &rarr;</a>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                <h4 class="font-bold text-base mb-1">Midjourney</h4>
+                <p class="text-gray-400 text-xs mb-3">High-quality futuristic image generation.</p>
+                <a href="https://midjourney.com" target="_blank" class="text-xs text-cyan-400 font-semibold">Try Tool &rarr;</a>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                <h4 class="font-bold text-base mb-1">Canva AI</h4>
+                <p class="text-gray-400 text-xs mb-3">Create futuristic designs and graphics easily.</p>
+                <a href="https://canva.com" target="_blank" class="text-xs text-cyan-400 font-semibold">Try Tool &rarr;</a>
+            </div>
+        </div>
+    </section>
 
-B. Reader Support & Voluntary Donation Links:
-   - "Support FutureYou Magazine" modal/footer section with local payment support (bKash / Nagad / Rocket / Buy Me a Coffee link) for readers who want to voluntarily back the project.
+    <footer class="mt-auto border-t border-slate-800 py-6 text-center text-xs text-gray-500">
+        <p>&copy; 2026 Genesis X AI Magazine.</p>
+    </footer>
 
-==================================================
-3. CORE APP SECTIONS (SINGLE PAGE APP - SPA)
-==================================================
-A. Header & Navigation:
-   - Glowing Cyberpunk Logo ("FutureYou AI Magazine").
-   - "Install App" button triggering browser PWA installation.
-   - Quick Nav Links: Home, Read Issues, AI Tools, Time Portal, Support Us.
-
-B. Featured Magazine Reader:
-   - Responsive PDF / Flipbook Embedder using Web PDF Viewers (PDF.js or Google Docs Embed).
-   - PDF issues created via Canva and stored directly in GitHub repo or Google Drive.
-   - One-tap social media sharing buttons (Facebook, WhatsApp, Telegram).
-
-C. AI Time Portal (Interactive Feature):
-   - HTML/JS Image Comparison Before/After Slider ("2026 Today" vs "2050 AI Transformation").
-
-D. Free Lead Capture / Newsletter Form:
-   - Free integration using Formspree / Formsubmit / Google Forms to collect reader emails without backend server costs.
-
-==================================================
-4. MOBILE-FRIENDLY DATA STRUCTURE (JSON BASED)
-==================================================
-All dynamic content must load from simple JSON files inside the GitHub repository, making it easy to edit or add new issues directly from a smartphone browser:
-
--- data/magazines.json
-[
-  {
-    "id": "1",
-    "title": "Issue #01: GENESIS X",
-    "subtitle": "Human vs Machine Intelligence",
-    "cover_image": "images/cover1.jpg",
-    "pdf_link": "pdfs/issue1.pdf",
-    "date": "October 2026"
-  }
-]
-
--- data/tools.json
-[
-  {
-    "name": "Canva AI",
-    "category": "Visuals",
-    "description": "Create futuristic designs and magazine layouts.",
-    "affiliate_url": "YOUR_CANVA_AFFILIATE_LINK",
-    "icon": "https://img.icons8.com/color/48/canva.png"
-  },
-  {
-    "name": "Jasper AI",
-    "category": "Writing",
-    "description": "Advanced AI copywriter for futuristic stories.",
-    "affiliate_url": "YOUR_JASPER_AFFILIATE_LINK",
-    "icon": "https://img.icons8.com/color/48/brain.png"
-  }
-]
-
-==================================================
-5. PWA SETUP (MANIFEST.JSON)
-==================================================
-Include standard manifest configuration allowing mobile browsers to prompt "Add FutureYou AI to Home Screen":
-
-{
-  "name": "FutureYou AI Magazine",
-  "short_name": "FutureYou AI",
-  "start_url": "./index.html",
-  "display": "standalone",
-  "background_color": "#0A0E17",
-  "theme_color": "#00E5FF",
-  "icons": [
-    {
-      "src": "images/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    }
-  ]
-}
-
-==================================================
-6. DELIVERABLES REQUESTED
-==================================================
-1. Complete static `index.html` file containing full styling (Tailwind CDN) and JavaScript logic for rendering JSON data.
-2. Complete `manifest.json` and basic `sw.js` (Service Worker) for PWA offline capabilities.
-3. Step-by-step mobile guide on how to create a GitHub repository, upload these files via mobile Chrome browser, and enable GitHub Pages for free live deployment.
-4. 
+</body>
+</html>
