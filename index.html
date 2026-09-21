@@ -20,7 +20,7 @@
     <!-- Header -->
     <header class="bg-glass sticky top-0 z-50 border-b border-cyan-500/20 px-6 py-4 flex justify-between items-center">
         <h1 class="text-2xl font-bold neon-cyan tracking-wider">GENESIS X</h1>
-        <button id="installBtn" class="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-4 py-2 rounded-lg text-sm">
+        <button id="installBtn" class="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-4 py-2 rounded-lg text-sm transition">
             Install App
         </button>
     </header>
@@ -30,8 +30,8 @@
         <span class="text-xs uppercase tracking-widest bg-cyan-950 text-cyan-400 px-3 py-1 rounded-full border border-cyan-500/30">Issue #01 Available Now</span>
         <h2 class="text-3xl md:text-5xl font-extrabold mt-6 mb-4">Human vs Machine Intelligence</h2>
         <p class="text-gray-400 text-base mb-8">Discover futuristic AI trends, tools, and transformation stories in Genesis X Digital Magazine.</p>
-        <a href="#magazine" class="bg-gradient-to-r from-cyan-500 to-fuchsia-600 text-white font-bold px-6 py-3 rounded-xl shadow-lg inline-block">
-            Read Issue #01
+        <a href="magazine.pdf" target="_blank" class="bg-gradient-to-r from-cyan-500 to-fuchsia-600 text-white font-bold px-6 py-3 rounded-xl shadow-lg inline-block hover:opacity-90 transition">
+            Read Issue #01 (PDF)
         </a>
     </section>
 
@@ -39,15 +39,18 @@
     <section id="magazine" class="px-6 py-8 max-w-5xl mx-auto w-full">
         <h3 class="text-xl font-bold mb-4 text-cyan-400 border-l-4 border-cyan-400 pl-3">Featured Magazine</h3>
         <div class="bg-glass rounded-2xl p-5 neon-border flex flex-col gap-4 items-center">
-            <div class="w-full bg-slate-800 rounded-xl h-48 flex items-center justify-center border border-slate-700">
-                <span class="text-cyan-400 font-semibold">[ Genesis X Cover ]</span>
+            
+            <!-- Cover Image Container -->
+            <div class="w-full max-w-md bg-slate-800 rounded-xl overflow-hidden border border-slate-700 flex items-center justify-center min-h-[220px]">
+                <img src="cover.jpg" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x500/0f172a/00e5ff?text=Genesis+X+Magazine';" alt="Genesis X Cover" class="w-full h-auto object-cover">
             </div>
+
             <div class="w-full text-center">
                 <h4 class="text-lg font-bold mb-2">Issue #01: GENESIS X</h4>
                 <p class="text-gray-400 text-sm mb-4">Explore deep insights into AI Transformation, prompt engineering, and upcoming tech revolutions.</p>
-                <button class="bg-cyan-500/20 text-cyan-300 border border-cyan-500/50 font-semibold px-6 py-2 rounded-lg">
+                <a href="magazine.pdf" target="_blank" class="bg-cyan-500/20 text-cyan-300 border border-cyan-500/50 hover:bg-cyan-500 hover:text-black font-semibold px-6 py-2 rounded-lg inline-block transition">
                     Open Reader (PDF)
-                </button>
+                </a>
             </div>
         </div>
     </section>
@@ -55,7 +58,7 @@
     <!-- AI Tools Directory -->
     <section id="tools" class="px-6 py-8 max-w-5xl mx-auto w-full">
         <h3 class="text-xl font-bold mb-4 text-cyan-400 border-l-4 border-cyan-400 pl-3">Top AI Tools Hub</h3>
-        <div class="grid grid-cols-1 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
                 <h4 class="font-bold text-base mb-1">ChatGPT / OpenAI</h4>
                 <p class="text-gray-400 text-xs mb-3">Conversational AI for content, coding, and brainstorming.</p>
@@ -78,9 +81,8 @@
         <p>&copy; 2026 Genesis X AI Magazine.</p>
     </footer>
 
-    <!-- Service Worker & PWA Install Logic -->
+    <!-- Service Worker & PWA Script -->
     <script>
-        // Register Service Worker
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js')
@@ -89,7 +91,6 @@
             });
         }
 
-        // Handle PWA Install Prompt
         let deferredPrompt;
         const installBtn = document.getElementById('installBtn');
 
@@ -102,12 +103,9 @@
             if (deferredPrompt) {
                 deferredPrompt.prompt();
                 const { outcome } = await deferredPrompt.userChoice;
-                if (outcome === 'accepted') {
-                    console.log('User installed the app');
-                }
                 deferredPrompt = null;
             } else {
-                alert('ইনস্টল পপ-আপ না এলে ব্রাউজারের উপরে ৩-ডট (⋮) মেনু থেকে "Add to Home screen" বা "Install app" চাপুন।');
+                alert('অ্যাপ ইনস্টল করতে আপনার ফোনের Chrome ব্রাউজারে লিংকটি খুলে উপরে ৩-ডট (⋮) থেকে "Add to Home screen" বা "Install app" এ ক্লিক করুন।');
             }
         });
     </script>
