@@ -20,7 +20,7 @@
     <!-- Header -->
     <header class="bg-glass sticky top-0 z-50 border-b border-cyan-500/20 px-6 py-4 flex justify-between items-center">
         <h1 class="text-2xl font-bold neon-cyan tracking-wider">GENESIS X</h1>
-        <button class="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-4 py-2 rounded-lg text-sm">
+        <button id="installBtn" class="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-4 py-2 rounded-lg text-sm">
             Install App
         </button>
     </header>
@@ -78,8 +78,9 @@
         <p>&copy; 2026 Genesis X AI Magazine.</p>
     </footer>
 
-    <!-- Service Worker Registration -->
+    <!-- Service Worker & PWA Install Logic -->
     <script>
+        // Register Service Worker
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js')
@@ -87,6 +88,28 @@
                     .catch(err => console.log('Service Worker Registration Failed!', err));
             });
         }
+
+        // Handle PWA Install Prompt
+        let deferredPrompt;
+        const installBtn = document.getElementById('installBtn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+        });
+
+        installBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    console.log('User installed the app');
+                }
+                deferredPrompt = null;
+            } else {
+                alert('ইনস্টল পপ-আপ না এলে ব্রাউজারের উপরে ৩-ডট (⋮) মেনু থেকে "Add to Home screen" বা "Install app" চাপুন।');
+            }
+        });
     </script>
 </body>
 </html>
